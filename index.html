@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALU | Joyería Fina</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* Reset y estilos base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #fdfcfa;
+      color: #2e2e2e;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: 1px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Paleta de colores inspirada en joyas */
+    :root {
+      --dorado: #c9a961;
+      --dorado-oscuro: #a88a4a;
+      --plateado: #c0c0c0;
+      --esmeralda: #2e8b6b;
+      --rubí: #9b2c3f;
+      --marfil: #fdfcfa;
+      --carbon: #2e2e2e;
+      --gris-claro: #f5f1ea;
+      --gris-medio: #e8e2d8;
+    }
+
+    /* Botones */
+    .btn {
+      display: inline-block;
+      background-color: transparent;
+      border: 2px solid var(--dorado);
+      color: var(--carbon);
+      padding: 13px 34px;
+      font-size: 0.82rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border-radius: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .btn:hover {
+      background-color: var(--dorado);
+      color: white;
+      border-color: var(--dorado);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+    }
+
+    .btn-filled {
+      background-color: var(--dorado);
+      color: white;
+    }
+
+    .btn-filled:hover {
+      background-color: var(--dorado-oscuro);
+      border-color: var(--dorado-oscuro);
+    }
+
+    /* ===== HEADER Y NAVEGACIÓN ===== */
+    header {
+      background-color: var(--marfil);
+      border-bottom: 1px solid var(--gris-medio);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: 6px;
+      color: var(--carbon);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo i {
+      color: var(--dorado);
+      font-size: 1.8rem;
+    }
+
+    .logo span {
+      color: var(--dorado);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 38px;
+      list-style: none;
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 0.2s;
+      position: relative;
+      padding-bottom: 5px;
+      color: var(--carbon);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--dorado);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--dorado);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      color: var(--carbon);
+      cursor: pointer;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 780px;
+      padding: 50px 30px;
+    }
+
+    .hero-content .hero-tag {
+      font-size: 0.85rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 24px;
+      line-height: 1.15;
+      text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+    }
+
+    .hero-content p {
+      font-size: 1.15rem;
+      margin-bottom: 36px;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+      text-shadow: 1px 1px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ===== SECCIONES GENERALES ===== */
+    section {
+      padding: 100px 0;
+      scroll-margin-top: 90px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      color: var(--carbon);
+      letter-spacing: 2px;
+    }
+
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    .section-divider .line {
+      width: 60px;
+      height: 1px;
+      background-color: var(--dorado);
+    }
+
+    .section-divider i {
+      color: var(--dorado);
+      font-size: 0.9rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 0.88rem;
+      color: #8a8a8a;
+      margin-bottom: 55px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* ===== CATÁLOGO ===== */
+    .catalog {
+      background-color: var(--marfil);
+    }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 35px;
+    }
+
+    .catalog-item {
+      background: white;
+      border: 1px solid var(--gris-medio);
+      transition: all 0.4s ease;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .catalog-item:hover {
+      box-shadow: 0 20px 45px rgba(201, 169, 97, 0.18);
+      transform: translateY(-8px);
+      border-color: var(--dorado);
+    }
+
+    .catalog-image {
+      position: relative;
+      overflow: hidden;
+      height: 320px;
+    }
+
+    .catalog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+
+    .catalog-item:hover .catalog-image img {
+      transform: scale(1.08);
+    }
+
+    .catalog-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      background-color: var(--rubí);
+      color: white;
+      padding: 6px 16px;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .catalog-badge.nuevo {
+      background-color: var(--esmeralda);
+    }
+
+    .catalog-info {
+      padding: 28px 24px 32px;
+    }
+
+    .catalog-category {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .catalog-info h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+      color: var(--carbon);
+    }
+
+    .catalog-info p {
+      font-size: 0.88rem;
+      color: #7a7a7a;
+      font-weight: 300;
+      margin-bottom: 18px;
+    }
+
+    .catalog-info .btn {
+      padding: 10px 26px;
+      font-size: 0.72rem;
+    }
+
+    /* ===== QUIÉNES SOMOS ===== */
+    .about {
+      background-color: var(--gris-claro);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .about-image {
+      position: relative;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 550px;
+      object-fit: cover;
+      border: 1px solid var(--dorado);
+      padding: 14px;
+      background: white;
+    }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--dorado);
+      z-index: -1;
+    }
+
+    .about-text .about-tag {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .about-text h2 {
+      font-size: 2.8rem;
+      margin-bottom: 24px;
+      line-height: 1.2;
+      color: var(--carbon);
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      font-weight: 300;
+      color: #5a5a5a;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .about-features {
+      list-style: none;
+      margin: 30px 0 34px;
+    }
+
+    .about-features li {
+      margin-bottom: 14px;
+      font-size: 0.95rem;
+      color: #3a3a3a;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .about-features li i {
+      color: var(--dorado);
+      font-size: 1rem;
+      width: 20px;
+    }
+
+    /* ===== PRECIOS ===== */
+    .prices {
+      background-color: var(--marfil);
+    }
+
+    .prices-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: white;
+      border: 1px solid var(--gris-medio);
+      padding: 45px 35px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .price-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 50px rgba(201, 169, 97, 0.2);
+      border-color: var(--dorado);
+    }
+
+    .price-card.featured {
+      border: 2px solid var(--dorado);
+      background: linear-gradient(180deg, #fffef9 0%, #fdf9ee 100%);
+      transform: scale(1.03);
+    }
+
+    .price-card.featured:hover {
+      transform: scale(1.03) translateY(-10px);
+    }
+
+    .price-card .popular-tag {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--dorado);
+      color: white;
+      padding: 7px 22px;
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .price-card .plan-icon {
+      font-size: 2.2rem;
+      color: var(--dorado);
+      margin-bottom: 18px;
+    }
+
+    .price-card h3 {
+      font-size: 1.9rem;
+      margin-bottom: 12px;
+      color: var(--carbon);
+    }
+
+    .price-card .plan-desc {
+      font-size: 0.85rem;
+      color: #8a8a8a;
+      font-weight: 300;
+      margin-bottom: 24px;
+      min-height: 40px;
+    }
+
+    .price-amount {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.2rem;
+      color: var(--dorado);
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1;
+    }
+
+    .price-amount span {
+      font-size: 1rem;
+      color: #8a8a8a;
+      font-weight: 400;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .price-period {
+      font-size: 0.78rem;
+      color: #a0a0a0;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+    }
+
+    .price-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 32px;
+      flex-grow: 1;
+      border-top: 1px solid var(--gris-medio);
+      padding-top: 26px;
+    }
+
+    .price-features li {
+      font-size: 0.88rem;
+      color: #5a5a5a;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-weight: 300;
+    }
+
+    .price-features li i {
+      color: var(--esmeralda);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    .price-features li.no i {
+      color: #d0d0d0;
+    }
+
+    .price-card .btn {
+      width: 100%;
+    }
+
+    /* ===== CONTACTOS ===== */
+    .contact {
+      background-color: var(--gris-claro);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .contact-info h2 {
+      font-size: 2.6rem;
+      margin-bottom: 18px;
+      color: var(--carbon);
+    }
+
+    .contact-info .contact-tag {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dorado);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .contact-info > p {
+      margin-bottom: 30px;
+      font-weight: 300;
+      color: #5a5a5a;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .contact-details {
+      list-style: none;
+      margin-bottom: 36px;
+    }
+
+    .contact-details li {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 20px;
+      font-size: 0.95rem;
+      color: #3a3a3a;
+    }
+
+    .contact-details li i {
+      width: 46px;
+      height: 46px;
+      background-color: white;
+      border: 1px solid var(--dorado);
+      color: var(--dorado);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .contact-details li:hover i {
+      background-color: var(--dorado);
+      color: white;
+    }
+
+    /* Redes sociales en Contactos */
+    .social-section {
+      margin-top: 10px;
+    }
+
+    .social-section h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--carbon);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.3rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .social-icons a.facebook {
+      background-color: #1877f2;
+    }
+
+    .social-icons a.youtube {
+      background-color: #ff0000;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-5px) scale(1.08);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .social-icons a.facebook:hover {
+      background-color: #0d5bc4;
+    }
+
+    .social-icons a.youtube:hover {
+      background-color: #cc0000;
+    }
+
+    .contact-form {
+      background: white;
+      padding: 42px;
+      border: 1px solid var(--gris-medio);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    }
+
+    .contact-form h3 {
+      font-size: 1.9rem;
+      margin-bottom: 26px;
+      color: var(--carbon);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--carbon);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--gris-medio);
+      border-radius: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.92rem;
+      color: var(--carbon);
+      background-color: #fdfcfa;
+      transition: border-color 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--dorado);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 0.85rem;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #1e1e1e;
+      color: #b8b8b8;
+      padding: 65px 0 26px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 45px;
+      margin-bottom: 48px;
+    }
+
+    .footer-col h4 {
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 12px;
+      font-size: 0.88rem;
+      font-weight: 300;
+    }
+
+    .footer-col a {
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--dorado);
+    }
+
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: white;
+      letter-spacing: 5px;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .footer-brand span {
+      color: var(--dorado);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .footer-col p {
+      font-size: 0.88rem;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #444;
+      border-radius: 50%;
+      transition: all 0.3s;
+      color: #b8b8b8;
+    }
+
+    .footer-social a:hover {
+      border-color: var(--dorado);
+      color: var(--dorado);
+      background-color: rgba(201, 169, 97, 0.1);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 26px;
+      border-top: 1px solid #333;
+      font-size: 0.82rem;
+      color: #888;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .prices-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 22px;
+      }
+      .price-card {
+        padding: 38px 26px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .about-image img {
+        height: 420px;
+      }
+      .about-image::after {
+        display: none;
+      }
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .prices-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+      }
+      .price-card.featured {
+        transform: scale(1);
+      }
+      .price-card.featured:hover {
+        transform: translateY(-10px);
+      }
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: var(--marfil);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 35px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+        z-index: 99;
+        font-size: 1rem;
+      }
+
+      .nav-links.active {
+        transform: translateX(0);
+      }
+
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .catalog-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .section-title {
+        font-size: 2.2rem;
+      }
+
+      .about-text h2,
+      .contact-info h2 {
+        font-size: 2.2rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-inner {
+        padding: 16px 0;
+      }
+      .logo {
+        font-size: 1.5rem;
+        letter-spacing: 3px;
+        gap: 8px;
+      }
+      .logo i {
+        font-size: 1.4rem;
+      }
+      .hero-content h1 {
+        font-size: 1.9rem;
+      }
+      .hero-content .hero-tag {
+        font-size: 0.7rem;
+        letter-spacing: 3px;
+      }
+      .btn {
+        padding: 11px 24px;
+        font-size: 0.72rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .contact-form {
+        padding: 30px 22px;
+      }
+      .contact-details li i {
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+      }
+      .social-icons a {
+        width: 46px;
+        height: 46px;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container header-inner">
+      <div class="logo">
+        <i class="fas fa-gem"></i>
+        MALU<span>.</span>
+      </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#catalogo">Catálogo</a></li>
+        <li><a href="#quienes-somos">Quiénes Somos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#contactos">Contactos</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== HERO ===== -->
+    <section class="hero" style="padding: 0;">
+      <div class="hero-content">
+        <p class="hero-tag">Joyería Fina · Desde 1985</p>
+        <h1>Elegancia que<br>perdura en el tiempo</h1>
+        <p>Descubre piezas únicas elaboradas a mano con metales preciosos y gemas seleccionadas.</p>
+        <a href="#catalogo" class="btn btn-filled">Explorar Catálogo</a>
+      </div>
+    </section>
+
+    <!-- ===== CATÁLOGO ===== -->
+    <section class="catalog" id="catalogo">
+      <div class="container">
+        <h2 class="section-title">Catálogo</h2>
+        <div class="section-divider">
+          <span class="line"></span>
+          <i class="fas fa-gem"></i>
+          <span class="line"></span>
+        </div>
+        <p class="section-subtitle">Piezas exclusivas de nuestra colección</p>
+
+        <div class="catalog-grid">
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&w=1974&auto=format&fit=crop" alt="Anillo solitario de diamante">
+              <span class="catalog-badge">Nuevo</span>
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Anillos</p>
+              <h3>Anillo Aurora</h3>
+              <p>Solitario en oro blanco de 18k con diamante central de 0.5 quilates.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?q=80&w=1974&auto=format&fit=crop" alt="Collar de oro con colgante">
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Collares</p>
+              <h3>Collar Étoile</h3>
+              <p>Cadena de oro amarillo de 18k con colgante de esmeralda natural.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1974&auto=format&fit=crop" alt="Pendientes de perlas">
+              <span class="catalog-badge nuevo">Exclusivo</span>
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Pendientes</p>
+              <h3>Pendientes Perla</h3>
+              <p>Perlas cultivadas de agua dulce con detalles en oro rosa de 14k.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1974&auto=format&fit=crop" alt="Pulsera de diamantes">
+              <span class="catalog-badge">Nuevo</span>
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Pulseras</p>
+              <h3>Pulsera Lumière</h3>
+              <p>Brazalete en oro blanco con diamantes talla brillante en línea continua.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?q=80&w=1974&auto=format&fit=crop" alt="Anillo de compromiso">
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Anillos</p>
+              <h3>Anillo Eternité</h3>
+              <p>Alianza de oro amarillo con zafiros azules y acabado mate.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+
+          <div class="catalog-item">
+            <div class="catalog-image">
+              <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?q=80&w=1974&auto=format&fit=crop" alt="Collar de rubíes">
+              <span class="catalog-badge">Limitado</span>
+            </div>
+            <div class="catalog-info">
+              <p class="catalog-category">Collares</p>
+              <h3>Collar Rubí Real</h3>
+              <p>Collar de oro rosa con rubíes naturales y cierre ajustable.</p>
+              <a href="#contactos" class="btn">Solicitar info</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== QUIÉNES SOMOS ===== -->
+    <section class="about" id="quienes-somos">
+      <div class="container about-grid">
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1584302179602-e4c3d3fd629d?q=80&w=1974&auto=format&fit=crop" alt="Artesano joyero trabajando">
+        </div>
+        <div class="about-text">
+          <p class="about-tag">Nuestra Historia</p>
+          <h2>Tradición y arte en cada joya</h2>
+          <p>Desde 1985, en MALU creamos piezas que capturan la esencia de los momentos más preciados. Nuestros maestros orfebres combinan técnicas ancestrales con un diseño contemporáneo para ofrecer joyas únicas.</p>
+          <p>Cada gema es seleccionada a mano, cada metal es tratado con precisión, y cada creación está destinada a convertirse en un legado familiar que trasciende generaciones.</p>
+          <ul class="about-features">
+            <li><i class="fas
